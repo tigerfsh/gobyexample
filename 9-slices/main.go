@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	s := make([]string, 3)
@@ -20,4 +22,29 @@ func main() {
 	fmt.Println("append: ", s)
 	fmt.Printf("cap: %d, len: %d\n", cap(s), len(s))
 
+	c := make([]string, len(s))
+	copy(c, s)
+	fmt.Println("cpy: ", c)
+
+	l := s[2:5]
+	fmt.Println("sl1: ", l)
+
+	l = s[:5]
+	fmt.Println("sl2: ", l)
+
+	l = s[2:]
+	fmt.Println("sl3: ", 1)
+
+	t := []string{"g", "h", "i"}
+	fmt.Println("dcl: ", t)
+
+	twoD := make([][]int, 3)
+	for i := 0; i < 3; i++ {
+		innerlen := i + 1
+		twoD[i] = make([]int, innerlen)
+		for j := 0; j < innerlen; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", twoD)
 }
